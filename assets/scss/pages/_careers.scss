@@ -1,0 +1,123 @@
+/* Careers
+========================================================= */
+
+/* Shared */
+
+.careers-split {
+ .image, .content {
+  flex: 0 1 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .image {
+  min-height: 100vh;
+  @include bg;
+  @include for-size(phone) {
+   min-height: 100vw;
+  }
+ }
+ .inner {
+  padding: clamp(30px, 10vw, 100px);
+ }
+ small {
+  margin-bottom: 60px;
+ }
+}
+
+/* Hero */
+
+.careers-hero {
+ h1, h2 {
+  font-size: 200px;
+  font-stretch: 5%;
+  font-weight: 500;
+  line-height: 1;
+  @include for-size(desktop) {
+   font-size: clamp(60px, 7vw, 200px);
+   font-size: clamp(60px, 7vw, 200px);
+  }
+ }
+ h1 {
+  margin-bottom: 5px;
+  line-height: 0.5;
+ }
+ h2 {
+  font-stretch: 120%;
+  font-weight: 700;
+ }
+ p {
+  &:last-child {
+   margin-bottom: 0;
+  }
+ }
+ .copy {
+  max-width: 700px;
+ }
+}
+
+/* Positions */
+
+.open-positions {
+ .arrow-link-list {
+  margin-bottom: 40px;
+  li {
+   &:first-child {
+    border-top: 1px solid #000;
+   }
+  }
+ }
+}
+
+/* Perks */
+
+.careers-perks {
+ text-align: center;
+}
+
+.perk-entry {
+ &:not(:last-child) {
+  margin-bottom: 50px;
+ }
+ .title {
+  font-size: em(48);
+  font-weight: 900;
+  margin-bottom: 5px;
+ }
+}
+
+.career-testimonials.portfolio-testimonials {
+ padding: 0;
+ .testimonial-slide--info .title {
+  line-height: 1.5;
+ }
+}
+
+/* Mantras */
+
+.careers-mantras {
+ text-align: center;
+ @include row-padding;
+ small {
+  margin-bottom: 60px;
+ }
+ .grid {
+  grid-gap: 50px;
+  @include for-size(phone, up) {
+   grid-template-columns: 1fr 1fr 1fr;
+  }
+  @include for-size(tablet, up) {
+   grid-gap: 80px 200px;
+  }
+ }
+ img {
+  display: block;
+  margin: 0 auto 20px auto;
+ }
+ @include for-size(1440px, up) {
+  .byline {
+   max-width: 60%;
+   margin: 0 auto;
+  }
+ }
+}

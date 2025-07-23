@@ -1,0 +1,147 @@
+.footer-cta {
+ background-color: $pink;
+ text-align: center;
+ padding: 30px 0;
+ position: relative;
+ z-index: 1;
+ p {
+  font-size: clamp(25px, 3vw, 36px);
+  font-weight: 900;
+  margin-bottom: 0;
+ }
+}
+
+.footer {
+ background-color: #000;
+ color: #fff;
+ padding: 80px 0;
+ a, img {
+  color: #fff;
+  text-decoration: none;
+  &:hover, &:focus {
+   color: $pink;
+  }
+ }
+}
+
+.footer-blocks {
+ display: flex;
+ justify-content: flex-start;
+ margin-bottom: 70px;
+ gap:30px;
+ @include for-size(1080px) {
+  flex-wrap: wrap;
+ }
+}
+
+.footer-block-entry {
+ flex: 0 1 auto;
+ margin-left: 30px;
+ margin-right: 30px;
+ @include for-size(tablet) {
+  flex: 0 1 40%;
+ }
+ @include for-size(phone) {
+  flex-basis: 100%;
+ }
+ small {
+  margin-bottom: 10px;
+ }
+ ul {
+  @include list-reset;
+ }
+ p, li {
+  line-height: 1.5;
+ }
+ li {
+  &:not(:last-child) {
+   margin-bottom: 10px;
+  }
+ }
+ &.subscribe {
+  @include for-size(tablet) {
+   flex-basis: 100%;
+  }
+ }
+}
+
+.footer-logo {
+ flex: 0 1 auto;
+ img {
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+ }
+}
+
+.footer-coda {
+ display: flex;
+ justify-content: space-between;
+ align-items: flex-end;
+ flex-wrap: wrap;
+ align-items: center;
+ @include for-size(tablet) {
+  flex-direction: column;
+ }
+}
+
+.footer-privacy {
+ @include small(14, 1.4);
+ margin: 0;
+ display: flex;
+ align-items: flex-end;
+ justify-content: flex-end;
+ color: $pink;
+ margin-left: auto;
+ margin-right: 0;
+ @include for-size(tablet) {
+  flex-direction: column;
+  margin: 0;
+  align-items: center;
+ }
+ a {
+  color: $pink;
+  &:hover, &:focus {
+   color: white;
+  }
+ }
+ .copyright-menu {
+   display: flex;
+  @include for-size(tablet, up) {
+   margin-right: 25px;
+  }
+  @include for-size(tablet) {
+    order:2;
+    
+    flex-direction: column-reverse;
+  }
+ }
+ ul {
+  @include list-reset;
+  margin-right: 25px;
+  @include for-size(tablet, up) {
+   display: flex;
+   li {
+    padding-left: 15px;
+    margin-left: 15px;
+    border-left: 1px solid $pink;
+   }
+  }
+  @include for-size(tablet) {
+    margin: 20px 0;
+  }
+  a {
+    @include for-size(tablet) {
+      display: block;
+      padding: 10px;
+      text-align: center;
+    }
+  }
+ }
+ img {
+  max-width: 150px;
+  @include for-size(phone) {
+   margin: 0 auto;
+  }
+ }
+}

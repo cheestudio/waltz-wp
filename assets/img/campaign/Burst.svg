@@ -1,0 +1,20 @@
+<svg class="burst-icon scrolled" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 104 40" style="enable-background:new 0 0 104 40;" xml:space="preserve">
+<g>
+	<g>
+<g class="burst-lines">
+		<path d="M104,18.6H90.6v2.7H104V18.6z"/>
+		<path d="M13.4,18.6H0v2.7h13.4V18.6z"/>
+		</g>
+<g class="burst-inner">
+		<path d="M53.4,26.7h-2.7V40h2.7V26.7z"/>
+		<path d="M46.3,23.7l-9.5,9.4l1.9,1.9l9.5-9.4L46.3,23.7z"/>
+		<path d="M45.3,18.6H31.9v2.7h13.4V18.6z"/>
+		<path d="M38.8,4.9l-1.9,1.9l9.5,9.4l1.9-1.9L38.8,4.9z"/>
+		<path d="M53.4,0h-2.7v13.3h2.7V0z"/>
+		<path d="M65.2,4.9l-9.5,9.4l1.9,1.9l9.5-9.4L65.2,4.9z"/>
+		<path d="M72.1,18.6H58.7v2.7h13.4V18.6z"/>
+		<path d="M57.7,23.7l-1.9,1.9l9.5,9.4l1.9-1.9L57.7,23.7z"/></g>
+	</g>
+</g>
+</svg>

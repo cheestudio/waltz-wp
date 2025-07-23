@@ -1,0 +1,372 @@
+/* Body Overlay
+========================================================= */
+
+.overlay {
+ position: fixed;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(black, 0.80);
+ display: none;
+ z-index: 50;
+ opacity: 0;
+ visibility: hidden;
+}
+
+@keyframes rotate {
+ 100% {
+  transform: rotate(360deg);
+ }
+}
+
+/* Nav
+========================================================= */
+
+.nav-toggle-wrap {
+ display: flex;
+ position: fixed;
+ align-items: center;
+ top: rem(20px);
+ right: rem(20px);
+ z-index: 10000;
+}
+
+.breadcrumbs {
+ @include small;
+ @include trans;
+ margin: 0 25px 0 0;
+ a {
+  color: inherit;
+  text-decoration: none;
+  &:hover, &:focus {
+   text-decoration: underline;
+  }
+ }
+ .current-title {
+  border-bottom: 1px solid $black;
+  padding-bottom: 10px;
+ }
+ &.scrolled {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10px);
+ }
+ @include for-size(1180px) {
+  display: none;
+ }
+}
+
+.navbar-toggle {
+ cursor: pointer;
+ background: none;
+ border: none;
+ z-index: 100;
+ display: block;
+ width: 50px;
+ height: 50px;
+ border-radius: 100%;
+ padding: 15px;
+ flex-direction: column;
+ background-color: white;
+ @include trans;
+ &:hover, &:focus {
+  background-color: $yellow !important;
+ }
+ .icon-bar-entry {
+  transform: translateX(30px);
+  display: block;
+  opacity: 0;
+ }
+ .icon-bar {
+  @include trans;
+  display: block;
+  background: $black;
+  height: 3px;
+  width: 21px;
+  &:not(.bottom) {
+   margin-bottom: 5px;
+  }
+  &.top,
+  &.bottom {
+   @include trans;
+   transform: translate(0);
+  }
+  &.middle:before,
+  &.middle:after {
+   @include trans;
+   content: '';
+   position: absolute;
+   display: block;
+   background-color: white;
+   border-radius: 0px;
+   height: 3px;
+   top: 34%;
+   left: 0;
+   margin-bottom: 5px;
+   opacity: 0;
+   transform: rotate(0deg);
+  }
+ }
+ &.open {
+  background: none !important;
+  .icon-bar {
+   @include trans;
+   width: 21px;
+   @include for-size(1280px) {
+    background: $yellow !important
+   }
+   &.top {
+    transform: translate(0, 10px) rotate(46deg);
+   }
+   &.middle {
+    background: transparent;
+    opacity: 0;
+    transform: scale(0);
+   }
+   &.bottom {
+    transform: translate(0, -6px) rotate(-46deg);
+   }
+  }
+ }
+ &:hover, &:focus {
+  background: none;
+  .icon-bar {
+   background-color: $black;
+  }
+ }
+}
+
+.nav-wrap {
+ opacity: 0;
+}
+
+.nav-inner {
+ clear: both;
+ position: fixed;
+ top: 0;
+ right: 0;
+ width: 90vw;
+ height: 100vh;
+ z-index: 9500;
+ .flex {
+  align-items: stretch;
+  height: 100%;
+  position: relative;
+  @include for-size(1280px) {
+   height: auto;
+   flex-direction: column;
+  }
+ }
+ @include for-size(1280px) {
+  width: 100vw;
+  overflow: scroll;
+ }
+ &.nav-opened {
+  transform: translateX(0);
+
+ }
+}
+
+.nav-menu {
+ ul {
+  @include list-reset;
+  li {
+   display: block;
+   position: relative;
+   margin: 0;
+   overflow: hidden;
+   >a {
+    // @include trans;
+    display: block;
+    color: #fff;
+    font-size: em(80);
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 0;
+    padding: rem(15px) 0;
+    background-color: none;
+    opacity: 0;
+    transform: translateY(100%);
+    span.description {
+     display: block;
+     font-size: em(14, 100);
+     @include font('mono');
+     font-weight: 300;
+     @include for-size(phone) {
+      font-size: 12px;
+      color: $yellow;
+     }
+    }
+    @include for-size(tablet) {
+     font-size: clamp(40px, 12vw, 200px);
+    }
+    &:hover, &:focus, &:active {
+     color: $yellow;
+     font-weight: 400;
+    }
+   }
+
+   .expand {
+    @include trans;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: rem(25px);
+    background: url('assets/img/svg/nav-caret-right.svg') center no-repeat;
+    background-color: transparent !important;
+    z-index: 1000;
+    &:hover, &:focus, &:active {
+     transform: rotate(-180deg);
+    }
+   }
+
+   .close-sub {
+    @include trans;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: rem(30px);
+    background: url(assets/img/svg/nav-arrow-left.svg) center no-repeat;
+    background-color: transparent !important;
+    z-index: 2000;
+
+    &:hover, &:focus, &:active {
+     transform: translateX(-5px);
+    }
+   }
+
+   &.menu-item-has-children {
+    &:hover, &:focus, &:active {
+     .sub-menu {
+      &:before {
+       display: none;
+      }
+     }
+    }
+   }
+   &.sub-active>a {
+    border-color: #4f4f52 !important;
+   }
+   &.current-menu-item,
+   &.current-page-ancestor {
+    >a {
+     color: $yellow;
+    }
+   }
+   &:nth-child(2) {
+    >a {
+     &:hover, &:focus {
+      color: $greenLight;
+     }
+    }
+   }
+   &:nth-child(3) {
+    >a {
+     &:hover, &:focus {
+      color: $blue;
+     }
+    }
+   }
+   &:nth-child(4) {
+    >a {
+     &:hover, &:focus {
+      color: $pink;
+     }
+    }
+   }
+   &:nth-child(5) {
+    >a {
+     &:hover, &:focus {
+      color: $greenDark;
+     }
+    }
+   }
+  }
+ }
+}
+
+.nav-info {
+ position: relative;
+ background-color: $greenLight;
+ flex: 1;
+ padding: clamp(50px, 5vw, 100px);
+ @include for-size(1280px, up) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ &--entry {
+  .title {
+   @include small(19, 1.9);
+   margin-bottom: 20px;
+  }
+  ul {
+   @include list-reset;
+  }
+  li {
+   font-size: em(25);
+   letter-spacing: 1.9;
+   line-height: 1.6;
+   font-weight: 500;
+  }
+  &:not(:last-child) {
+   margin-bottom: 70px;
+  }
+  &.subscribe {
+    max-width: 200px;
+  }
+ }
+ input {
+  display: block;
+  width: 100%;
+  border: none;
+ }
+}
+
+.nav-menu {
+ flex: 0 1 60%;
+ background-color: #000;
+ padding: clamp(50px,5vw,100px);
+ display: flex;
+ justify-content: center;
+ align-items: flex-start;
+ flex-direction: column;
+ &--copyright {
+  margin-top: auto;
+  color: #fff;
+  @include small;
+  line-height: 1.6;
+  a {
+   color: #fff;
+   text-decoration: underline;
+   &:hover, &:focus {
+    text-decoration: none;
+   }
+  }
+  @include for-size(1280px) {
+   display: none;
+  }
+ }
+}
+
+// Accessibility Tag
+.sr-only {
+ position: absolute;
+ width: 1px;
+ height: 1px;
+ padding: 0;
+ margin: -1px;
+ overflow: hidden;
+ clip: rect(0, 0, 0, 0);
+ border: 0;
+ opacity: 0;
+}
+
+.visible {
+ .nav-wrap {
+  opacity: 1;
+ }
+}

@@ -1,0 +1,12 @@
+<svg version="1.1" class="service-path service-path-02" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="148.5px" height="154.3px" viewBox="0 0 148.5 154.3" style="enable-background:new 0 0 148.5 154.3;" xml:space="preserve"
+	>
+<style type="text/css">
+	.line-dash{fill:none;stroke:#FFFFFF;stroke-width:2.5;stroke-miterlimit:10;stroke-dasharray:9,6;}
+	.line-cover{fill:none;stroke:#B5E3D8;stroke-width:3.5;stroke-miterlimit:10;}
+</style>
+<path class="line-dash" d="M66.3,0.9c0,0-25.5,26-33.4,31.4S12.7,45.5,5.2,36.5S2,11.2,12.3,9.1
+	c11-2.2,16,1.2,18.5,7c4.4,10.9,7.9,22.1,10.5,33.5c3.2,14,5.8,28.1,16.6,48.4c0,0,24.3,43.6,90.4,55"/>
+<path class="line-cover" d="M148.3,153.1c-66-11.4-90.4-55-90.4-55C47.2,77.8,44.5,63.7,41.4,49.7C38.8,38.3,35.3,27,30.9,16.2
+	c-2.5-5.9-7.5-9.2-18.5-7C2,11.2-2.4,27.5,5.2,36.5s19.9,1.1,27.7-4.3S66.3,0.9,66.3,0.9"/>
+</svg>

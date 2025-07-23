@@ -1,0 +1,201 @@
+/* Creatives For Community
+========================================================= */
+
+.c4c-intro {
+ position: relative;
+ background-color: $greenLight;
+ color: $charcoal;
+ @include row-padding(200, 100, 100, 50);
+ overflow: hidden;
+}
+
+.c4c-intro {
+ &--logo {
+  position: relative;
+  z-index: 1;
+  img {
+   max-width: 250px;
+  }
+ }
+ &--headers {
+  display: none;
+  margin: 60px auto;
+  position: relative;
+  z-index: 1;
+  .hover-text {
+   &:first-child {
+    margin-bottom: 30px;
+    @include for-size(phone) {
+     margin-bottom: 10px;
+    }
+   }
+  }
+  @include for-size(1440px, up) {
+   margin: 50px auto;
+   &.stacked {
+    display: block;
+   }
+  }
+  @include for-size(1440px) {
+   &.stacked {
+    display: block;
+   }
+  }
+ }
+ &--primary {
+  position: relative;
+  @include for-size(phone, up) {
+   margin-bottom: 80px;
+  }
+ }
+ &--content {
+  @include for-size(phone, up) {
+   max-width: 70%;
+  }
+  p {
+   position: relative;
+   z-index: 1;
+   @include for-size(desktop, up) {
+    font-size: em(24);
+   }
+  }
+ }
+ &--image {
+  position: absolute;
+  z-index: 0;
+  right: -200px;
+  top: 50%;
+  transform: translateY(-50%);
+  @include for-size(desktop, up) {
+   right: -10vw;
+  }
+  @include for-size(phone) {
+   right: -150px;
+   top: 100px;
+   z-index: 0;
+   display: none;
+  }
+  img {
+   @include trans;
+   width: 40vw;
+   display: block;
+   margin: 0 auto;
+   @include for-size(desktop, up) {
+    width: clamp(300px, 35vw, 1015px);
+   }
+   @include for-size(phone) {
+    width: 250px;
+   }
+  }
+ }
+}
+
+@keyframes angle {
+ 0% {
+  transform: rotate(0) translateY(-50%);
+ }
+ 50% {
+  transform: rotate(-10deg) translateY(-50%);
+ }
+ 100% {
+  transform: rotate(0) translateY(-50%);
+ }
+}
+
+@keyframes throb {
+ 0% {
+  transform: scale(1) translateY(-50%);
+ }
+ 50% {
+  transform: scale(1.05) translateY(-50%);
+ }
+ 100% {
+  transform: scale(1) translateY(-50%);
+ }
+}
+
+.c4c-callouts {
+ margin-top: 50px;
+ .grid {
+  grid-gap: 50px;
+  @include for-size(tablet, up) {
+   grid-template-columns: 1fr 1fr;
+  }
+ }
+ .arrow-link {
+  display: inline-flex;
+  align-items: baseline;
+  @include font('mono');
+  font-size: 18px;
+  color: $charcoal;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  font-weight: 400;
+  @include trans;
+  margin-top: auto;
+  span.icon {
+   svg {
+    display: block;
+    max-width: 13px;
+    margin-left: 10px;
+    path {
+     @include trans;
+     fill: $charcoal
+    }
+   }
+  }
+ }
+}
+
+.c4c-callout-entry {
+ display: block;
+ padding: 30px;
+ position: relative;
+ text-align: left;
+ border: 2px solid $charcoal;
+ color: $charcoal;
+ @include trans;
+ &:hover, &:focus {
+  background-color: $greenMed;
+  color: $charcoal;
+  .arrow-link {
+   color: $charcoal;
+  }
+  path {
+   fill: $charcoal !important;
+  }
+  @include for-size(tablet, up) {
+   .heart {
+    animation: throb 1s ease-in-out 0s infinite normal both;
+   }
+   .pencil {
+    animation: angle 2s ease-in-out 0s infinite normal both;
+   }
+  }
+ }
+ .inner-copy {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  @include for-size(phone, up) {
+   max-width: 75%;
+  }
+ }
+ .box-accent {
+  max-width: 170px;
+  display: block;
+  margin: 0 auto 20px auto;
+  @include for-size(phone, up) {
+   margin: 0;
+   right: -60px;
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   z-index: 10;
+  }
+  &.pencil {
+   max-width: 140px;
+   right: -25px;
+  }
+ }
+}

@@ -1,0 +1,39 @@
+/* Color VARs
+========================================================= */
+
+$black:#000;
+$charcoal:#231F20;
+$yellow:#EAFF00;
+$greenLight:#b5e3d8;
+$greenMed:#47d7ac;
+$greenDark:#00b2a9;
+$blue:#8194dd;
+$purple:#514163;
+$pink:#e59bdc;
+
+
+/* Colors Classes
+========================================================= */
+
+$colors: (
+ "black":$black,
+ "charcoal":$charcoal,
+ "yellow":$yellow,
+ "greenLight":$greenLight,
+ "greenMed":$greenMed,
+ "greenDark":$greenDark,
+ "blue":$blue,
+ "purple":$purple,
+ "pink":$pink,
+);
+
+@each $name, $hex in $colors {
+ :root {
+  --#{$name}: #{$hex}
+ }
+ .#{$name}-link {
+	 a {
+		background-image: linear-gradient($hex, $hex) !important;
+	 }
+ }
+}

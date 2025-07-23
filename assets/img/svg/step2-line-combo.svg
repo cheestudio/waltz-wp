@@ -1,0 +1,8 @@
+<svg version="1.1" class="service-path service-path-03" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="47.2px" height="101.1px" viewBox="0 0 47.2 101.1" style="enable-background:new 0 0 47.2 101.1;" xml:space="preserve">
+<style type="text/css">
+	.line-dash{fill:none;stroke:#FFFFFF;stroke-width:2.5;stroke-miterlimit:10;stroke-dasharray:9,6;}
+	.line-cover{fill:none;stroke:#B5E3D8;stroke-width:3.5;stroke-miterlimit:10;}
+</style>
+<path class="line-dash" d="M44,0.2c7.8,39.1-9.5,78.8-43.4,99.8"/>
+<path class="line-cover" d="M0.7,100C34.5,79.1,51.8,39.3,44,0.2"/>
+</svg>

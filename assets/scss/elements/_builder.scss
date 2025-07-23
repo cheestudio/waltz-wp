@@ -1,0 +1,112 @@
+/* Builder Modules
+========================================================= */
+
+.homepage-portfolio-block {
+ h1 {
+  @include small;
+  margin-bottom: 15px;
+ }
+ h2 {
+  font-weight: 900;
+  font-stretch: ultra-condensed;
+  font-size: clamp(40px, 3vw, 72px);
+ }
+ p {
+  font-size: em($font-size-sm);
+  @include small;
+  a {
+   background: none !important;
+  }
+ }
+}
+
+
+.portfolio-intro-block {
+ h1 {
+  @include small;
+  margin-bottom: 15px;
+ }
+ h2 {
+  font-weight: 900;
+  font-stretch: ultra-condensed;
+  font-size: clamp(40px, 3vw, 72px);
+ }
+ p {
+  font-size: em($font-size-sm);
+ }
+ ul {
+  @include list-reset;
+  padding-left: rem(20px);
+  border-left: 1px solid $black;
+  margin-top: 100px;
+  @include for-size(phone) {
+   margin-top: rem(50px);
+  }
+  li {
+   @include small;
+   margin-bottom: rem(20px);
+  }
+ }
+}
+
+.portfolio-blockquote {
+ blockquote {
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+  margin-left: 15%;
+  &:before {
+   content: '“';
+   position: absolute;
+   top: rem(-40px);
+   left: rem(-100px);
+   font-size: em(180);
+   color: inherit;
+   font-weight: 500;
+  }
+  /*    &:after {
+      content:'';
+      position: absolute;
+      top: rem(-60px);
+      left: -10vw;
+      background:url('assets/img/testimonial-bubble.png') center/cover no-repeat;
+      width:332px;
+      height:332px;
+      z-index: -1;
+    }*/
+  p {
+   font-size: clamp(25px, 2vw, 38px);
+   ;
+   font-weight: 500;
+  }
+  h4 {
+   font-weight: 500;
+   margin-bottom: 0;
+   margin-top: rem(30px);
+   font-size: clamp(20px, 2vw, 25px);
+  }
+  h5 {
+   font-size: clamp(20px, 2vw, 21px);
+  }
+ }
+}
+
+/* Single Service
+========================================================= */
+
+.single-service {
+ .fl-list {
+  .fl-list-item-heading-text {
+   @include small;
+  }
+ }
+}
+
+/* Undo Global Link Treatment
+========================================================= */
+
+.link-reset, .fl-photo-content  {
+  a {
+   background-image: none !important;
+  }
+ }

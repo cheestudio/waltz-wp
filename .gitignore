@@ -1,0 +1,7 @@
+**/.DS_Store
+node_modules
+.idea/
+*.cjs
+src/*.cjs
+src/pnpm-lock.yaml
+package-lock.json

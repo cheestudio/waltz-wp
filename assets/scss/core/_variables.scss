@@ -1,0 +1,236 @@
+@use 'sass:math';
+
+/* Fonts
+========================================================= */
+@mixin font($style:'GT') {
+ @if ($style=='GT') {
+  font-family: 'GT','sans-serif';
+  font-weight: 300;
+ }
+ @else if ($style=='mono') {
+  font-family: 'GTMono','sans-serif';
+ }
+}
+
+/* Sizing */
+
+$font-size-h1:200;
+$font-size-h2:72;
+$font-size-h3:48;
+$font-size-h4:30;
+$font-size-h5:25;
+$font-size-h6:20;
+$font-size-sm:18;
+
+
+/* EM to PX
+========================================================= */
+$browser-context: 16; // Default
+@function em($pixels, $context: $browser-context) {
+ @return #{$pixels/$context}em;
+}
+
+/* REM to PX
+========================================================= */
+
+@function rem($size) {
+ @return $size / 16px * 1rem;
+}
+
+/* Clamp Dynamic Resize
+========================================================= */
+@function resize($minSize, $maxSize, $minViewWidth, $maxViewWidth) {
+  $slope: calc(($maxSize - $minSize) / ($maxViewWidth - $minViewWidth));
+  $yAxis: calc($minSize + ($minViewWidth * $slope * -1));
+
+  $minSizeRem: (math.div($minSize, 16)) * 1rem;
+  $maxSizeRem: (math.div($maxSize, 16)) * 1rem;
+  $slopeViewWidth: calc(#{$slope * 100}vw);
+  $yAxisRem: (math.div($yAxis, 16)) * 1rem;
+
+  @if ($yAxisRem == 0rem) {
+    $preferredValue: clamp($minSizeRem, $slopeViewWidth, $maxSizeRem);
+    @return $preferredValue;
+  } @else {
+    $preferredValue: clamp($minSizeRem, calc($yAxisRem + $slopeViewWidth), $maxSizeRem);
+    @return $preferredValue;
+  }
+}
+
+
+/* BG Image
+========================================================= */
+@mixin bg($sizing:cover, $position:center, $repeat:no-repeat) {
+ background: {
+  position: $position;
+  repeat: $repeat;
+  size: $sizing;
+ }
+}
+
+/* Padding - Global Rows
+========================================================= */
+@mixin row-padding ($top-large:100, $bottom-large:100,
+ $top-medium:50, $bottom-medium:50,
+ $top-small:$top-medium, $bottom-small:$bottom-medium) {
+
+ @include for-size(tablet, up) {
+  padding-top: $top-large + px;
+  padding-bottom: $bottom-large + px;
+ }
+ @include between-sizes(tablet-sm, tablet) {
+  padding-top: $top-medium + px;
+  padding-bottom: $bottom-medium + px;
+ }
+ @include for-size(tablet-sm) {
+  padding-top: $top-small + px;
+  padding-bottom: $bottom-small + px;
+ }
+}
+
+
+/* Global Transition ( property, duration, easing )
+========================================================= */
+@mixin trans($duration:600, $property:all, $easing:cubic-bezier(.23, 1, .32, 1)) {
+ transition: $property $duration+ms $easing;
+}
+
+/* Font Awesome 5 ( needs content specified )
+========================================================= */
+@mixin fa($type:free, $weight:900) {
+ display: inline-block;
+ font-style: normal;
+ font-variant: normal;
+ text-rendering: auto;
+ -webkit-font-smoothing: antialiased;
+ @if ($type=='free') {
+  font-family: "Font Awesome 5 Free";
+  font-weight: $weight;
+ }
+ @else if ($type=='brands') {
+  font-family: "Font Awesome 5 Brands";
+ }
+}
+
+
+/* Additional Helper Mixins
+========================================================= */
+@mixin list-reset {
+ margin: 0;
+ padding: 0;
+ list-style: none;
+}
+
+@mixin margin-center {
+ margin-left: auto;
+ margin-right: auto;
+}
+
+@mixin no-margin-last {
+ &:last-of-type {
+  margin-bottom: 0;
+ }
+}
+
+@mixin padding-remove {
+ margin-left: -#{$padding}px;
+ margin-right: -#{$padding}px;
+}
+
+@mixin center($dir:vert) {
+ @if $dir==vert {
+  top: 50%;
+  transform: translateY(-50%);
+ }
+ @else if $dir==horiz {
+  left: 50%;
+  transform: translateX(-50%);
+ }
+}
+
+@mixin display($state:show) {
+ @if $state==show {
+  opacity: 1;
+  visibility: visible;
+ }
+ @else if $state==hide {
+  opacity: 0;
+  visibility: hidden;
+ }
+}
+
+@mixin imageAccent($color:$yellow) {
+ position: relative;
+ img {
+  display: block;
+  position: relative;
+  z-index: 1;
+ }
+ &:after {
+  content: '';
+  position: absolute;
+  top: rem(20px);
+  right: rem(-20px);
+  background: $yellow;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  @include trans(1000);
+ }
+}
+
+/* Links
+========================================================= */
+
+@mixin animatedLink {
+ @include trans;
+ padding: 0;
+ border: none;
+ position: relative;
+ color: inherit;
+ text-decoration: none;
+ background-image: linear-gradient($yellow, $yellow);
+ background-size: 100% 25%;
+ background-position: 100% 100%;
+ background-repeat: no-repeat;
+ &:hover, &:focus, &:active {
+  background-color: transparent;
+  background-size: 100% 100%;
+  background-position: 100% 100%;
+ }
+}
+
+/* Button ( color, background, border )
+========================================================= */
+%btn {
+ @include trans;
+ border: none;
+ background: transparent;
+ cursor: pointer;
+ display: inline-block;
+ padding: 0;
+ text-align: center;
+ user-select: none;
+ vertical-align: baseline;
+ font-size: em(18);
+ line-height: 1.2;
+ -webkit-appearance: none;
+ // background-image: none !important;
+}
+@mixin button($color:black, $bg:white, $border:black) {
+ @extend %btn;
+ @include animatedLink;
+}
+
+/* Typography Mixins
+========================================================= */
+
+@mixin small($fz:12,$space:1.2) {
+ font-size: em($fz);
+ display: block;
+ font-weight: 400;
+ letter-spacing: $space+px;
+ text-transform: uppercase;
+ margin-bottom: 5px;
+ @include font('mono');
+}

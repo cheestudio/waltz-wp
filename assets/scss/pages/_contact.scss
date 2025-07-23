@@ -1,0 +1,194 @@
+/* Contact
+========================================================= */
+
+.visible {
+ .contact-content {
+  background-size: 35vw;
+  background-position: bottom left -100px;
+ }
+}
+
+.contact-content {
+ padding-top: clamp(100px, 10vw, 150px);
+ padding-bottom: 10vw;
+ @include trans(4000);
+ h1 {
+  font-size: calc(100% + 14vw);
+ }
+ @include for-size(phone, up) {
+  background: url('assets/img/svg/bg-stripes.svg') bottom left/37vw no-repeat;
+ }
+}
+
+.contact-grid {
+ display: grid;
+ grid-gap: clamp(50px, 5vw, 150px);
+ @include for-size(tablet, up) {
+  grid-template-columns: 0.65fr 0.35fr;
+ }
+}
+
+/* Contact Form */
+
+#gform_5 {
+ label {
+  margin-left: rem(30px);
+ }
+ input[type] {
+  padding-left: 30px;
+ }
+ select {
+  padding-left: 25px;
+ }
+}
+
+/* Assessment Form */
+
+.gform_wrapper .gf_progressbar_wrapper {
+ display: none;
+}
+
+@include for-size(tablet) {
+ .page-template-tpl-contact {
+  .lity-container {
+   width: 90%
+  }
+ }
+}
+
+#assessment {
+ min-width: 100%;
+ width: 100%;
+ @include for-size(tablet, up) {
+  min-width: rem(1000px);
+ }
+ .inner {
+  padding: clamp(20px, 3vw, 50px);
+  background: url('assets/img/svg/bg-feet.svg') 50px 20px/250px no-repeat $greenLight;
+  @include for-size(tablet-sm) {
+   background-size: 150px;
+  }
+  .gform_wrapper {
+   margin: 0 auto;
+   padding-top: rem(60px);
+  }
+ }
+ legend {
+  @extend %h3;
+  font-weight: 900;
+  font-stretch: 50%;
+  margin-bottom: rem(20px);
+ }
+ .gchoice {
+  margin-bottom: rem(15px);
+  line-height: 1.4;
+  display: flex;
+  align-items: baseline;
+  >input {
+   position: relative;
+   top: 2px;
+   margin-right: 8px;
+  }
+ }
+ button {
+  border: none;
+  padding: 0;
+  display: block;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover, &:focus {
+   color: $black;
+  }
+  &.gform_next_button {
+   margin-right: 0;
+   margin-left: auto;
+   &:hover, &:focus {
+    &:after {
+     transform: translateX(5px);
+    }
+   }
+   &:after {
+    content: '';
+    background: url('assets/img/svg/icon-circle-arrow.svg') center/contain no-repeat !important;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    @include trans;
+   }
+  }
+  &.gform_previous_button {
+   margin-left: 0;
+   margin-right: auto;
+   &:hover, &:focus {
+    &:before {
+     transform: scaleX(-1) translateX(5px);
+    }
+   }
+   &:before {
+    content: '';
+    background: url('assets/img/svg/icon-circle-arrow.svg') center/contain no-repeat !important;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    transform: scaleX(-1);
+    @include trans;
+   }
+   &:after {
+    display: none;
+   }
+  }
+ }
+ .gform_page_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+ }
+}
+
+.choice-columns {
+ .gfield_radio {
+  @include for-size(phone, up) {
+   columns: 2
+  }
+ }
+}
+
+#gform_confirmation_wrapper_6 {
+ min-height: 300px;
+ display: flex;
+ align-items: center;
+}
+
+
+.start-assessment {
+ border: none;
+ padding: 0;
+ display: block;
+ background: none;
+ display: inline-flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 20px;
+ font-size: em(20);
+ &:hover, &:focus {
+  color: $black;
+  background: none;
+  &:after {
+   transform: translateX(5px);
+  }
+ }
+ &:after {
+  content: '';
+  background: url('assets/img/svg/icon-circle-arrow.svg') center/contain no-repeat !important;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  @include trans;
+ }
+}

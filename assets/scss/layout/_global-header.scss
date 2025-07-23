@@ -1,0 +1,52 @@
+.brand {
+ display: inline-block;
+ position: fixed;
+ top: rem(20px);
+ left: rem(20px);
+ width: 70px;
+ height: 70px;
+ z-index: 9000;
+ @include for-size(phone) {
+  width: 50px;
+  height: 50px;
+ }
+ svg {
+  width: 100%;
+ }
+ path {
+  @include trans;
+ }
+ &:hover,
+ &:focus {
+  .logo-circle {
+   fill: $blue;
+  }
+  .logo-W {
+   fill: #fff;
+  }
+ }
+}
+
+.home {
+ .brand {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.85);
+ }
+}
+
+.brand-full {
+ position: fixed;
+ top: rem(22px);
+ left: rem(36px);
+ z-index: 10;
+ @include for-size(phone) {
+  max-width: 180px;
+  left: rem(33px);
+ }
+}
+
+main {
+  z-index: 1;
+  position: relative;
+}

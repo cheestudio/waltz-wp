@@ -1,0 +1,148 @@
+/* Fonts
+========================================================= */
+
+@font-face {
+  font-family: 'GT';
+  src: url('assets/fonts/GT-Flexa-Standard-Light.woff') format("woff"),
+  url('assets/fonts/GT-Flexa-Standard-Light.woff2') format("woff2");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GT';
+  src: url('assets/fonts/GT-Flexa-Standard-Medium.woff') format("woff"),
+  url('assets/fonts/GT-Flexa-Standard-Medium.woff2') format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GT';
+  src: url('assets/fonts/GT-Flexa-Condensed-Black.woff') format("woff"),
+  url('assets/fonts/GT-Flexa-Condensed-Black.woff2') format("woff2");
+  font-weight: 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GTMono';
+  src: url('assets/fonts/GT-Flexa-Mono-Regular.woff') format("woff"),
+  url('assets/fonts/GT-Flexa-Mono-Regular.woff2') format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+// @supports (font-variation-settings: normal) {
+  // }
+  
+  @font-face {
+    font-family: 'GT';
+    src: url('assets/fonts/gt-flexa.woff2') format("woff2 supports variations"),
+    url('assets/fonts/gt-flexa.woff2') format("woff2-variations"),
+    url('assets/fonts/gt-flexa.woff2') format("woff2");
+    font-weight: 1 999;
+    font-stretch: 1% 200%;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'GTMono';
+    src: url('assets/fonts/gt-flexa-mono.woff2') format("woff2 supports variations"),
+    url('assets/fonts/gt-flexa-mono.woff2') format("woff2-variations"),
+    url('assets/fonts/gt-flexa-mono.woff2') format("woff2");
+    font-weight: 1 999;
+    font-stretch: 1% 200%;
+    font-display: swap;
+  }
+  
+  
+  
+  /* Headings
+  ========================================================= */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+    br {
+      @include for-size(tablet-sm) {
+        display: none;
+      }
+    }
+  }
+  
+  h1, .h1, %h1 {
+    font-size: em(200);
+    font-weight: 900;
+    font-size: 60px;
+    font-size: clamp(60px, 7vw, 200px);
+  }
+  h2, .h2, %h2 {
+    font-size: em(72);
+    font-weight: 900;
+    font-size: 50px;
+    font-size: clamp(50px, 5vw, 72px);
+  }
+  h3, .h3, %h3 {
+    font-size: em(48);
+    font-weight: 500;
+    font-size: 30px;
+    font-size: clamp(30px, 4vw, 48px);
+  }
+  h4, .h4, %h4 {
+    font-size: em(30);
+    font-weight: 500;
+    font-size: 20px;
+    font-size: clamp(20px, 3vw, 30px);
+  }
+  h5, .h5, %h5 {
+    font-size: 25px;
+    font-size: em(25);
+  }
+  h6, .h6, %h6 {
+    font-size: 20px;
+    font-size: em(20);
+  }
+  
+  /* Body
+  ========================================================= */
+  body {
+    @include font();
+    font-weight: 300;
+    color: $black;
+    a {
+      color: $black;
+      text-decoration: none;
+      &:hover, &:focus {
+        color: $blue;
+      }
+      @include trans;
+    }
+    &:not(.fl-builder-edit) {
+      main {
+        a:not(.bare-link):not(.fl-button), a[href^="tel"] {
+          @include animatedLink;
+        }
+      }
+    }
+  }
+  
+  main {
+    p, li {
+      font-size: em(18);
+      line-height: 1.45;
+      margin-bottom: 20px;
+      @include for-size(tablet-sm) {
+        font-size: 1em;
+      }
+    }
+    
+    blockquote {
+      p {
+        @include no-margin-last;
+      }
+    }
+  }
+  
+  small {
+    @include small;
+  }
