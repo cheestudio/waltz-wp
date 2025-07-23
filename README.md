@@ -1,9 +1,5 @@
 # Waltz Creative WordPress Theme
 
-Custom WordPress theme for Waltz Creative, a full-service marketing and creative agency.
-
-## Overview
-
 Modern WordPress theme featuring custom post types, Advanced Custom Fields integration, and Gulp-based build system.
 
 ## Build System
